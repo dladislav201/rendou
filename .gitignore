@@ -1,0 +1,50 @@
+# Node modules
+node_modules/
+
+# pnpm store (if using a local store-dir)
+.pnpm-store/
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Build output directories
+dist/
+build/
+
+# Test coverage reports
+coverage/
+
+# Log files and folders
+logs/
+*.log
+
+# Environment variable files
+.env
+.env.*.local
+
+# Turborepo cache
+.turbo/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Compiled output
+*.js
+*.js.map
+*.d.ts
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+
+# OS metadata files
+.DS_Store
+Thumbs.db

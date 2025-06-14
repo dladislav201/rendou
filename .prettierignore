@@ -1,0 +1,45 @@
+# Ignore all node_modules folders
+node_modules
+**/node_modules
+
+# Build output folders
+dist
+**/dist
+build
+**/build
+
+# Test coverage reports
+coverage
+**/coverage
+
+# Log files and folders
+*.log
+logs
+**/logs
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Turborepo cache
+.turbo
+**/.turbo
+
+# pnpm store (if you’ve ever used a local store-dir)
+.pnpm-store
+**/.pnpm-store
+
+# TypeScript compiled output
+**/*.js
+**/*.js.map
+**/*.d.ts
+
+# IDE and OS files
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+
+# Don’t attempt to format this file
+.prettierignore
