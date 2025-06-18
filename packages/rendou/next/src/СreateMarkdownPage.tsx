@@ -1,5 +1,6 @@
 import { compileMarkdownFile, MarkdownError } from '@rendou/core';
 import { notFound } from 'next/navigation';
+import { getAllSlugs } from './shared/lib';
 import type { RendouTheme } from './shared/types';
 
 type MarkdownPageProps = {
@@ -29,6 +30,9 @@ export function CreateMarkdownPage({
       }
     }
   };
+
+  Page.generateStaticParams = async () =>
+    (await getAllSlugs(contentDir)).map((slug) => ({ slug }));
 
   return Page;
 }
