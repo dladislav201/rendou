@@ -1,0 +1,22 @@
+{
+  "extends": "../../../tsconfig.json",
+  "references": [{ "path": "../core" }],
+  "compilerOptions": {
+    "rootDir": "src",
+    "declaration": true,
+    "target": "ES2015",
+    "lib": ["DOM", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
+    "emitDeclarationOnly": true,
+    "declarationDir": "./dist/types",
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "composite": true
+  },
+  "include": ["src"]
+}
