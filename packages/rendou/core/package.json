@@ -21,6 +21,14 @@
     "README.md",
     "LICENSE"
   ],
+  "dependencies": {
+    "shiki": "^3.6.0",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/mdast": "^4.0.4"
+  },
   "sideEffects": false,
   "type": "module",
   "engines": {
