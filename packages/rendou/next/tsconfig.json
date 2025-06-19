@@ -18,5 +18,5 @@
     "strict": true,
     "composite": true
   },
-  "include": ["src"]
+  "include": ["src", "types/typings.d.ts"]
 }
