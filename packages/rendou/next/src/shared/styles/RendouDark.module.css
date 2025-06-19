@@ -1,0 +1,189 @@
+.rendou-dark {
+  --bgPrimary: #1d1d1f;
+  --copyPrimary: #f5f5f7;
+  --linkPrimary: #0071e3;
+  --linkPrimaryHover: #3399ff;
+  --surfaceTintLow: rgba(255, 255, 255, 0.05);
+  --surfaceShadeLow: rgba(0, 0, 0, 0.14);
+  --borderPrimary: rgba(255, 255, 255, 0.1);
+  --shadowSoft: 2px 3px 8px rgba(0, 0, 0, 0.1);
+  --spacingRatioSmall: 0.83rem;
+  --spacingRatioMedium: 1.2rem;
+  --spacingRatioLarge: 1.8rem;
+  --borderRadiusSmall: 4px;
+  --borderRadiusLarge: 12px;
+
+  background-color: var(--bgPrimary);
+  color: var(--copyPrimary);
+}
+
+.rendou-dark article {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: var(--spacingRatioLarge) 0;
+
+  @media only screen and (max-width: 767px) {
+    padding: 0 var(--spacingRatioSmall);
+  }
+
+  @media only screen and (min-width: 768px) {
+    max-width: 50%;
+  }
+}
+
+.rendou-dark img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: var(--shadowSoft);
+  border-radius: var(--borderRadiusSmall);
+}
+
+.rendou-dark h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: var(--spacingRatioLarge) 0;
+  padding: 0 0 var(--spacingRatioLarge);
+  border-bottom: 1px solid var(--borderPrimary);
+}
+
+.rendou-dark h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: var(--spacingRatioMedium) 0;
+  padding: 0 0 var(--spacingRatioMedium);
+  border-bottom: 1px solid var(--borderPrimary);
+}
+
+.rendou-dark h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0 0 var(--spacingRatioMedium);
+}
+
+.rendou-dark h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0 0 var(--spacingRatioMedium);
+}
+
+.rendou-dark pre {
+  background-color: var(--surfaceTintLow);
+  border: 1px solid var(--borderPrimary);
+  box-shadow: var(--shadowSoft);
+  padding: var(--spacingRatioSmall);
+  border-radius: var(--borderRadiusLarge);
+  margin: 0 0 var(--spacingRatioMedium);
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.rendou-dark code {
+  font-size: 0.9rem;
+  line-height: 1.44;
+}
+
+.rendou-dark code:not(pre code) {
+  padding: 0.2rem 0.45rem;
+  margin: 0;
+  white-space: break-spaces;
+  border-radius: 6px;
+  background-color: var(--surfaceTintLow);
+}
+
+.rendou-dark ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 1.2rem;
+  margin: 0 0 var(--spacingRatioMedium);
+}
+
+.rendou-dark ol {
+  padding-left: 1.2rem;
+}
+
+.rendou-dark li,
+.rendou-dark p,
+.rendou-dark a {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.44;
+}
+
+.rendou-dark a {
+  color: var(--linkPrimary);
+  text-decoration: underline;
+  text-decoration-thickness: 0.02rem;
+  text-underline-offset: 0.15rem;
+  transition: color 0.14s ease;
+}
+.rendou-dark a:hover {
+  color: var(--linkPrimaryHover);
+}
+
+.rendou-dark p:not(blockquote p) {
+  margin: 0 0 var(--spacingRatioMedium);
+}
+
+.rendou-dark blockquote {
+  position: relative;
+  display: flex;
+  margin: 0 0 var(--spacingRatioMedium);
+  padding: 0 var(--spacingRatioMedium);
+}
+.rendou-dark blockquote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--surfaceTintLow);
+  border-radius: 2px;
+}
+.rendou-dark blockquote p {
+  margin: 0.4rem 0;
+  color: #9a9a9e;
+}
+
+.rendou-dark hr {
+  border: none;
+  border-top: 1px solid var(--borderPrimary);
+  margin: 0 0 var(--spacingRatioMedium);
+}
+
+.rendou-dark table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: hidden;
+  margin-bottom: var(--spacingRatioMedium);
+}
+.rendou-dark th,
+.rendou-dark td {
+  padding: 0.6rem;
+  text-align: left;
+  font-weight: 300;
+}
+.rendou-dark th {
+  background-color: var(--surfaceTintLow);
+  font-weight: 400;
+}
+.rendou-dark td {
+  background-color: var(--surfaceShadeLow);
+}
+
+.rendou-dark thead tr:first-child th:first-child {
+  border-top-left-radius: 12px;
+}
+.rendou-dark thead tr:first-child th:last-child {
+  border-top-right-radius: 12px;
+}
+.rendou-dark tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+.rendou-dark tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}

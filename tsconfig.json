@@ -3,25 +3,6 @@
     { "path": "./packages/rendou/core" },
     { "path": "./packages/rendou/next" }
   ],
-  // "compilerOptions": {
-  //   "target": "ES2015",
-  //   "lib": ["DOM"],
-  //   "module": "ESNext",
-  //   "strict": true,
-  //   "esModuleInterop": true,
-  //   "skipLibCheck": true,
-  //   "moduleResolution": "Node",
-  //   "resolveJsonModule": true,
-  //   "isolatedModules": true,
-  //   "declaration": true,
-  //   "declarationMap": true,
-  //   "sourceMap": true,
-  //   "allowJs": true,
-  //   "baseUrl": ".",
-  //   "paths": {
-  //     "@rendou/*": ["packages/rendou/*/src"]
-  //   }
-  // },
   "compilerOptions": {
     "target": "ES2015",
     "lib": ["DOM", "ESNext"],
@@ -39,6 +20,9 @@
       "@mantine/*": ["./packages/@mantine/*/src"]
     }
   },
-  "include": ["packages/rendou/*/src"],
+  "include": [
+    "packages/rendou/*/src",
+    "packages/rendou/next/types/typings.d.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }
