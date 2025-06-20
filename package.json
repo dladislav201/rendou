@@ -1,10 +1,11 @@
 {
-  "name": "rendou-monorepo",
+  "name": "rendou",
   "author": "Vladyslav Dobrodii <dobrodii.vlad200@gmail.com>",
   "license": "MIT",
   "private": true,
   "packageManager": "pnpm@9.15.9",
   "scripts": {
+    "build": "tsx scripts/build-packages",
     "lint": "eslint --config eslint.config.mjs . --ext .ts",
     "lint:fix": "eslint --config eslint.config.mjs . --ext .ts --fix",
     "typecheck": "tsc --noEmit",
@@ -12,10 +13,19 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.0.1",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "chalk": "^5.4.1",
+    "deepmerge": "^4.3.1",
+    "esbuild": "^0.25.5",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
+    "fs-extra": "^11.3.0",
     "prettier": "^3.5.3",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.34.0"
   }
