@@ -4,14 +4,13 @@
   "author": "Vladyslav Dobrodii <dobrodii.vlad200@gmail.com>",
   "license": "MIT",
   "description": "",
-  "main": "./dist/cjs/index.cjs",
-  "module": "./dist/esm/index.mjs",
+  "type": "module",
   "types": "./dist/types/index.d.ts",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.cjs",
-      "import": "./dist/esm/index.mjs",
-      "types": "./dist/types/index.d.ts"
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -30,7 +29,6 @@
     "react-dom": ">=18"
   },
   "sideEffects": false,
-  "type": "module",
   "engines": {
     "node": ">=18"
   },
