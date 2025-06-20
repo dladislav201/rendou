@@ -1,2 +1,2 @@
 export { logger } from './logger';
-export { getPackagePath } from './paths';
+export { getPackagePath } from './getPackagePath';
