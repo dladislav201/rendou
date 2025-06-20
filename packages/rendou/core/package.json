@@ -3,7 +3,23 @@
   "version": "1.0.0",
   "author": "Vladyslav Dobrodii <dobrodii.vlad200@gmail.com>",
   "license": "MIT",
-  "description": "",
+  "description": "Zero-config Markdown-to-React compiler for React and Next.js apps.",
+  "keywords": [
+    "markdown",
+    "md",
+    "mdx",
+    "react",
+    "next",
+    "app-router",
+    "syntax-highlighting",
+    "shiki",
+    "frontmatter",
+    "unified"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dladislav201/rendou.git"
+  },
   "type": "module",
   "types": "./dist/types/index.d.ts",
   "module": "./dist/index.js",
