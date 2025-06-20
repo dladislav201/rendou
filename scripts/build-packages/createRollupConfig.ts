@@ -9,29 +9,44 @@ import esbuild from 'rollup-plugin-esbuild';
 import cssnano from 'cssnano';
 import { RollupOptions } from 'rollup';
 
-export function createPackageConfig(packagePath: string): RollupOptions {
+export function createRollupConfig(packagePath: string): RollupOptions {
   const pkg = fs.readJsonSync(path.join(packagePath, 'package.json'));
+  const distDir = path.join(packagePath, 'dist');
+
+  const plugins = [
+    nodeResolve({
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    }),
+    esbuild({
+      tsconfig: path.posix.resolve('tsconfig.json'),
+    }),
+    commonjs(),
+    postcss({
+      modules: true,
+      extract: 'styles.css',
+      plugins: [autoprefixer(), cssnano()],
+    }),
+    terser(),
+  ];
 
   return {
     input: path.join(packagePath, 'src/index.ts'),
     output: [
       {
-        dir: path.join(packagePath, 'dist/cjs'),
+        dir: path.join(distDir, 'cjs'),
         format: 'cjs',
         entryFileNames: '[name].cjs',
         preserveModules: true,
         preserveModulesRoot: path.join(packagePath, 'src'),
-        banner: `import './styles.css';`,
         exports: 'named',
         sourcemap: true,
       },
       {
-        dir: path.join(packagePath, 'dist/esm'),
+        dir: path.join(distDir, 'esm'),
         format: 'esm',
         entryFileNames: '[name].mjs',
         preserveModules: true,
         preserveModulesRoot: path.join(packagePath, 'src'),
-        banner: `require('./styles.css');`,
         sourcemap: true,
       },
     ],
@@ -48,20 +63,6 @@ export function createPackageConfig(packagePath: string): RollupOptions {
       if (warning.code === 'EMPTY_BUNDLE') return;
       warn(warning);
     },
-    plugins: [
-      nodeResolve({
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      }),
-      esbuild({
-        tsconfig: path.posix.resolve('tsconfig.json'),
-      }),
-      commonjs(),
-      postcss({
-        modules: true,
-        extract: 'styles.css',
-        plugins: [autoprefixer(), cssnano()],
-      }),
-      terser(),
-    ],
+    plugins,
   };
 }
