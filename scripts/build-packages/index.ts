@@ -1,5 +1,5 @@
 import { logger } from '../lib';
-import { buildAllPackages } from './build';
+import { buildAllPackages } from './buildAllPackages';
 
 buildAllPackages().catch((error) => {
   logger.error('Build process failed');

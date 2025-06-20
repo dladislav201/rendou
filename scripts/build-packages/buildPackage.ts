@@ -4,13 +4,13 @@ import { exec } from 'child_process';
 import { promisify } from 'util';
 import chalk from 'chalk';
 import { compile } from './compile';
-import { createPackageConfig } from './createPackageConfig';
-import { getPackagePath, logger } from '../lib';
+import { createRollupConfig } from './createRollupConfig';
+import { getPackagePath, relocateCssAndInject, logger } from '../lib';
+import { ExecException } from 'child_process';
 
 const execAsync = promisify(exec);
-const BUILD_ORDER = ['core', 'next'];
 
-async function buildPackage(packageName: string) {
+export async function buildPackage(packageName: string): Promise<boolean> {
   const packagePath = getPackagePath(packageName);
   const formattedPackageName = chalk.cyan(`rendou/${packageName}`);
 
@@ -31,35 +31,43 @@ async function buildPackage(packageName: string) {
     logger.log(`Generating ${formattedPackageName} TypeScript declarations...`);
     await execAsync(
       `npx tsc --project ${path.join(packagePath, 'tsconfig.json')}`,
-    ).catch((err) => {
-      logger.error(
-        `TypeScript Error:\n${err.stdout || err.stderr || err.message}`,
-      );
-      throw err;
+    ).catch((err: unknown) => {
+      if (err instanceof Error) {
+        logger.error(`Message: ${err.message}`);
+        logger.error(`Stack:\n${err.stack}`);
+      } else if (
+        typeof err === 'object' &&
+        err !== null &&
+        ('stdout' in err || 'stderr' in err)
+      ) {
+        const execErr = err as ExecException & {
+          stdout?: string;
+          stderr?: string;
+        };
+        logger.error(execErr.stdout ?? execErr.stderr ?? 'No output captured');
+      } else {
+        logger.error(`Unknown error shape: ${JSON.stringify(err, null, 2)}`);
+      }
     });
 
     logger.log(`Compiling ${formattedPackageName} package...`);
     try {
-      const config = createPackageConfig(packagePath);
+      const config = createRollupConfig(packagePath);
       await compile(config);
-    } catch (rollupError) {
+    } catch (rollupError: unknown) {
       logger.error(`Rollup compilation failed for ${formattedPackageName}`);
-      logger.error(`Rollup Error Details: \n ${rollupError}`);
+      if (rollupError instanceof Error) {
+        logger.error(`Error message: ${rollupError.message}`);
+        logger.error(`Stack trace:\n${rollupError.stack}`);
+      } else {
+        logger.error(
+          `Unknown error type: ${JSON.stringify(rollupError, null, 2)}`,
+        );
+      }
       return false;
     }
 
-    const cjsStylePath = path.join(packagePath, 'dist/cjs/styles.css');
-    const esmStylePath = path.join(packagePath, 'dist/esm/styles.css');
-    const targetStylePath = path.join(packagePath, 'dist/styles.css');
-
-    if (fs.existsSync(cjsStylePath)) {
-      await fs.copy(cjsStylePath, targetStylePath);
-      await fs.remove(cjsStylePath);
-    }
-    if (fs.existsSync(esmStylePath)) {
-      await fs.copy(esmStylePath, targetStylePath);
-      await fs.remove(esmStylePath);
-    }
+    await relocateCssAndInject(distDir);
 
     const endTime = Date.now();
     const buildTime = ((endTime - startTime) / 1000).toFixed(2);
@@ -72,25 +80,5 @@ async function buildPackage(packageName: string) {
     logger.error(`Failed to build package ${formattedPackageName} with error:`);
     logger.error(error);
     return false;
-  }
-}
-
-export async function buildAllPackages() {
-  logger.log('Building all packages...');
-
-  let hasErrors = false;
-
-  for (const pkg of BUILD_ORDER) {
-    const success = await buildPackage(pkg);
-    if (!success) {
-      hasErrors = true;
-    }
-  }
-
-  if (hasErrors) {
-    logger.error('Some packages failed to build');
-    process.exit(1);
-  } else {
-    logger.success(chalk.green('All packages built successfully!'));
   }
 }
