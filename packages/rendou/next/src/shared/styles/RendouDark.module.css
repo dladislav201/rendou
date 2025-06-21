@@ -57,7 +57,7 @@
 
 .rendou-dark h3 {
   font-size: 1.3rem;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0 0 var(--spacingRatioMedium);
 }
 
@@ -126,6 +126,10 @@
 
 .rendou-dark p:not(blockquote p) {
   margin: 0 0 var(--spacingRatioMedium);
+}
+
+.rendou-dark strong {
+  font-weight: 500;
 }
 
 .rendou-dark blockquote {
