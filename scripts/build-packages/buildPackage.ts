@@ -8,6 +8,7 @@ import chalk from 'chalk';
 import { loadPackageConfig } from './loadPackageConfig';
 import { injectStyleImport } from './injectStyleImport';
 import { getPackagePath, logger, step } from '../lib';
+import cssModulesPlugin from 'esbuild-css-modules-plugin';
 
 type ExecResult = { stdout: string; stderr: string };
 
@@ -33,6 +34,7 @@ export async function buildPackage(packageName: string): Promise<void> {
 
   const pkg = await fs.readJson(path.join(pckDir, 'package.json'));
   const baseOptions: BuildOptions = {
+    absWorkingDir: srcDir,
     bundle: true,
     sourcemap: true,
     minify: true,
@@ -50,6 +52,12 @@ export async function buildPackage(packageName: string): Promise<void> {
       'react',
       'react-dom',
       'react/jsx-runtime',
+    ],
+    plugins: [
+      cssModulesPlugin({
+        localsConvention: 'camelCase',
+        inject: false,
+      }),
     ],
   };
 
