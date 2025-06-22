@@ -14,7 +14,8 @@
     "syntax-highlighting",
     "shiki",
     "frontmatter",
-    "unified"
+    "unified",
+    "rendou"
   ],
   "repository": {
     "type": "git",
