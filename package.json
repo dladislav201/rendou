@@ -1,6 +1,7 @@
 {
   "name": "rendou",
   "author": "Vladyslav Dobrodii <dobrodii.vlad200@gmail.com>",
+  "description": "Monorepo for Rendou: a Markdown-to-React compiler with Next.js integration, providing core utilities and App Router components",
   "license": "MIT",
   "private": true,
   "packageManager": "pnpm@9.15.9",
