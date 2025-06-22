@@ -20,9 +20,6 @@
       "@mantine/*": ["./packages/@mantine/*/src"]
     }
   },
-  "include": [
-    "packages/rendou/*/src",
-    "packages/rendou/next/types/typings.d.ts"
-  ],
+  "include": ["packages/rendou/*/src"],
   "exclude": ["node_modules", "dist"]
 }
