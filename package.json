@@ -20,6 +20,7 @@
     "chalk": "^5.4.1",
     "deepmerge": "^4.3.1",
     "esbuild": "^0.25.5",
+    "esbuild-css-modules-plugin": "^3.1.5",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
