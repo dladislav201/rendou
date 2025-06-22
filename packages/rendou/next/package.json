@@ -3,7 +3,26 @@
   "version": "1.0.0",
   "author": "Vladyslav Dobrodii <dobrodii.vlad200@gmail.com>",
   "license": "MIT",
-  "description": "",
+  "description": "Next.js App Router component for rendering Markdown pages with automatic slug generation, theming, and SSG support",
+  "keywords": [
+    "markdown",
+    "md",
+    "mdx",
+    "react",
+    "next",
+    "app-router",
+    "syntax-highlighting",
+    "shiki",
+    "frontmatter",
+    "unified",
+    "ssg",
+    "slug",
+    "rendou"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dladislav201/rendou.git"
+  },
   "type": "module",
   "types": "./dist/types/index.d.ts",
   "module": "./dist/index.js",
@@ -21,7 +40,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "@rendou/core": "workspace:*"
+    "@rendou/core": "^1.0.0"
   },
   "peerDependencies": {
     "next": ">=13",
