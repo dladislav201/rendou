@@ -8,7 +8,6 @@ import chalk from 'chalk';
 import { loadPackageConfig } from './loadPackageConfig';
 import { injectStyleImport } from './injectStyleImport';
 import { getPackagePath, logger, step } from '../lib';
-import cssModulesPlugin from 'esbuild-css-modules-plugin';
 
 type ExecResult = { stdout: string; stderr: string };
 
@@ -52,12 +51,6 @@ export async function buildPackage(packageName: string): Promise<void> {
       'react',
       'react-dom',
       'react/jsx-runtime',
-    ],
-    plugins: [
-      cssModulesPlugin({
-        localsConvention: 'camelCase',
-        inject: false,
-      }),
     ],
   };
 
