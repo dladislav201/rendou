@@ -33,7 +33,7 @@ export function CreateMarkdownPage({
   };
 
   Page.generateStaticParams = async () =>
-    (await getAllSlugs(contentDir)).map((slug) => ({ slug }));
+    (await getAllSlugs(contentDir)).map((path) => ({ slug: path.split('/') }));
 
   return Page;
 }
