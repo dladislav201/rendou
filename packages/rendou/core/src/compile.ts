@@ -11,6 +11,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import { isErrnoWithCode } from './shared/lib/isErrnoWithCode';
 import remarkFrontmatter from 'remark-frontmatter';
+import { vfileMatterPlugin } from './shared/plugins';
 import remarkRehype from 'remark-rehype';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
@@ -40,6 +41,7 @@ export async function compileMarkdownFile<
       .use(remarkShiki)
       .use(remarkGfm)
       .use(remarkFrontmatter, ['yaml'])
+      .use(vfileMatterPlugin)
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeRaw)
       .use(rehypeSanitize, {
