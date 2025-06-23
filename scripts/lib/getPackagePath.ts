@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 
-export const packageDir = path.resolve(process.cwd(), 'packages', 'rendou');
+export const packageDir = path.resolve(process.cwd(), 'packages');
 
 export async function getPackagePath(
   packageName: string,

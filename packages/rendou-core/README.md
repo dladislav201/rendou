@@ -1,6 +1,6 @@
 # @rendou/core
 
-### Zero-config Markdown-to-React compiler for React and Next.js apps.
+Zero-config Markdown-to-React compiler for React and Next.js apps.
 
 - **Frontmatter extraction**: parse YAML metadata out of your `.md` files.
 - **GFM & HTML**: support GitHub-flavored Markdown and inline HTML.

@@ -1,21 +1,22 @@
 # Rendou Monorepo
 
-#### This repository contains two interrelated packages for Markdown-driven React/Next.js sites:
+This repository contains two interrelated packages for Markdown-driven React/Next.js sites:
 
-- [`@rendou/core`](./packages/rendou/core) — zero-config Markdown → React compiler with frontmatter, GFM, HTML and Shiki syntax highlighting. See the full docs in [packages/rendou/core/README.md](./packages/rendou/core/README.md).
+- [`@rendou/core`](./packages/rendou-core) — zero-config Markdown → React compiler with frontmatter, GFM, HTML and Shiki syntax highlighting. See the full docs in [packages/rendou-core/README.md](./packages/rendou-core/README.md).
 
-- [`@rendou/next`](./packages/rendou/next) — Next.js App Router factory component that uses `@rendou/core`, auto-generates slugs, themes and static params. See the full docs in [packages/rendou/next/README.md](./packages/rendou/next/README.md).
+- [`rendou`](./packages/rendou) — all-in-one Next.js App Router factory powered by `@rendou/core`, compiling Markdown and auto-generating slugs, themes & static parameters. See the full docs in [packages/rendou/README.md](./packages/rendou/README.md).
 
 ## Installation
 
-The Nextra repository uses [PNPM Workspaces](https://pnpm.io/workspaces) and
-[Turborepo](https://github.com/vercel/turborepo).
+This monorepo uses PNPM Workspace [PNPM Workspaces](https://pnpm.io/workspaces).
 
-1. Run `corepack enable` to enable Corepack.
+1. Enable Corepack:
 
-> If the command above fails, **run npm install -g corepack@latest** to install
-> the latest version of
-> [Corepack](https://github.com/nodejs/corepack?tab=readme-ov-file#manual-installs).
+```bash
+corepack enable
+```
+
+> _If that fails, run `npm install -g corepack@latest`_.
 
 2. Install dependencies.
 
@@ -40,11 +41,11 @@ When you run the build from the repo root, it executes a single script (`scripts
 
 ## Publishing
 
-Each package is versioned independently under `packages/rendou/*/package.json`. To publish:
+Each package is versioned independently under `packages/*/package.json`. To publish:
 
 1. Bump the version in the package’s `package.json`.
 2. Run `pnpm run build` from the monorepo root.
-3. Run `cd packages/rendou/<pkg>` and npm publish.
+3. Run `cd packages/<pkg>` and npm publish.
 
 ## License
 

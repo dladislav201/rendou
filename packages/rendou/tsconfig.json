@@ -1,6 +1,6 @@
 {
-  "extends": "../../../tsconfig.json",
-  "references": [{ "path": "../core" }],
+  "extends": "../../tsconfig.json",
+  "references": [{ "path": "../rendou-core" }],
   "compilerOptions": {
     "rootDir": "src",
     "declaration": true,
