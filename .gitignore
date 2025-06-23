@@ -33,7 +33,6 @@ logs/
 # Compiled output
 *.js
 *.js.map
-*.d.ts
 
 # IDE and editor settings
 .vscode/

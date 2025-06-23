@@ -1,0 +1,66 @@
+{
+  "name": "@rendou/core",
+  "version": "1.0.0",
+  "author": "Vladyslav Dobrodii <dobrodii.vlad200@gmail.com>",
+  "license": "MIT",
+  "description": "Zero-config Markdown-to-React compiler for React and Next.js apps.",
+  "keywords": [
+    "markdown",
+    "md",
+    "mdx",
+    "react",
+    "next",
+    "app-router",
+    "syntax-highlighting",
+    "shiki",
+    "frontmatter",
+    "unified",
+    "rendou"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dladislav201/rendou.git"
+  },
+  "type": "module",
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "rehype-prism-plus": "^2.0.1",
+    "rehype-raw": "^7.0.0",
+    "rehype-react": "^8.0.0",
+    "rehype-sanitize": "^6.0.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "shiki": "^3.6.0",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0",
+    "vfile-matter": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/mdast": "^4.0.4",
+    "@types/unist": "^3.0.3",
+    "vfile": "^6.0.3"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "clean": "rimraf dist"
+  }
+}

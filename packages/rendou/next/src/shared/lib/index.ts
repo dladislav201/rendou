@@ -1,0 +1,1 @@
+export { getAllSlugs } from './getAllSlugs';
