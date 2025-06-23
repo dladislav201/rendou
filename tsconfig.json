@@ -1,7 +1,7 @@
 {
   "references": [
-    { "path": "./packages/rendou/core" },
-    { "path": "./packages/rendou/next" }
+    { "path": "./packages/rendou-core" },
+    { "path": "./packages/rendou" }
   ],
   "compilerOptions": {
     "target": "ES2015",
@@ -15,11 +15,8 @@
     "noEmitOnError": true,
     "allowJs": true,
     "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "@mantine/*": ["./packages/@mantine/*/src"]
-    }
+    "baseUrl": "."
   },
-  "include": ["packages/rendou/*/src"],
+  "include": ["packages/*/src"],
   "exclude": ["node_modules", "dist"]
 }
