@@ -1,8 +1,8 @@
-# @rendou/next
+# rendou
 
 > ⚠️ **This library requires Next.js App Router** and is **not compatible** with the Pages Router.
 
-A zero-config Next.js App Router component for rendering Markdown pages, built on top of `@rendou/core`. Provides a `CreateMarkdownPage()` factory that handles:
+Quick-start package to compile Markdown into React components and generate Next.js App Router pages with zero config (built on top of `@rendou/core`). Provides a `CreateMarkdownPage()` factory that handles:
 
 - Slug-based routing
 - Markdown compilation
@@ -14,16 +14,16 @@ A zero-config Next.js App Router component for rendering Markdown pages, built o
 
 ```bash
 # npm
-npm install @rendou/next
+npm install rendou
 
 # Yarn
-yarn add @rendou/next
+yarn add rendou
 
 # pnpm
-pnpm add @rendou/next
+pnpm add rendou
 ```
 
-> **Note:** Installing **@rendou/next** will automatically install **@rendou/core** as its dependency.
+> **Note:** Installing **rendou** will automatically install **@rendou/core** as its dependency.
 
 ## Quick Start
 
@@ -33,7 +33,7 @@ Create a dynamic route under app/[...slug]/page.tsx:
 // app/[...slug]/page.tsx
 
 import { notFound } from 'next/navigation';
-import { CreateMarkdownPage } from '@rendou/next';
+import { CreateMarkdownPage } from 'rendou';
 
 const MarkdownPage = CreateMarkdownPage({
   /** folder with your `.md`/`.mdx` files (default: "content") */

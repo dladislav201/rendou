@@ -1,9 +1,9 @@
 {
-  "name": "@rendou/next",
+  "name": "rendou",
   "version": "1.0.0",
   "author": "Vladyslav Dobrodii <dobrodii.vlad200@gmail.com>",
   "license": "MIT",
-  "description": "Next.js App Router component for rendering Markdown pages with automatic slug generation, theming, and SSG support",
+  "description": "Quick-start package to compile Markdown into React components and generate Next.js App Router pages with zero config",
   "keywords": [
     "markdown",
     "md",
