@@ -1,6 +1,6 @@
 {
   "name": "rendou",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Vladyslav Dobrodii <dobrodii.vlad200@gmail.com>",
   "license": "MIT",
   "description": "Quick-start package to compile Markdown into React components and generate Next.js App Router pages with zero config",
