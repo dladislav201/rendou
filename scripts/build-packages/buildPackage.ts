@@ -15,7 +15,7 @@ const execAsync = promisify(exec);
 
 export async function buildPackage(packageName: string): Promise<void> {
   const pckDir = await getPackagePath(packageName);
-  const nameLabel = chalk.cyan(`rendou/${packageName}`);
+  const nameLabel = chalk.cyan(`${packageName}`);
 
   if (!pckDir) {
     throw new Error(`Package ${nameLabel} not found`);

@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import { buildPackage } from './buildPackage';
 import { logger } from '../lib';
 
-const BUILD_ORDER = ['core', 'next'];
+const BUILD_ORDER = ['rendou-core', 'rendou'];
 
 async function main() {
   try {
